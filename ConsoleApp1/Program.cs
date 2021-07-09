@@ -35,6 +35,10 @@ namespace ConsoleApp1
                         {
                             await telegramBot.SendMessageAsync(message.SenderChatId, "های");
                         }
+                        else if (message.Text == "گوگل")
+                        {
+                            await telegramBot.SendMessageAsync(message.SenderChatId, "<a href='google.com'>گوگل</a>");
+                        }
                         else
                         {
                             var sendMessage = $"{message.FullName} says {message.Text}";

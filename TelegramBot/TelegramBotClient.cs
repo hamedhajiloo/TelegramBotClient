@@ -20,14 +20,15 @@ namespace TelegramBot
             client = new HttpClient();
         }
 
-        public async Task SendMessageAsync(string chatId, string text)
+        public async Task SendMessageAsync(string chatId, string text, string parsmode = "Html")
         {
             var url = $"https://api.telegram.org/bot{_token}/sendMessage";
 
             var message = new
             {
                 chat_id = chatId,
-                text = text
+                text = text,
+                parse_mode = parsmode
             };
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, url)
@@ -81,7 +82,7 @@ namespace TelegramBot
             return updates;
         }
 
-        
+
         public class Message
         {
             public int UpdateId { get; set; }
